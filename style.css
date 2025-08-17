@@ -1,12 +1,17 @@
-/* existing styles kept same as before ... */
+/* keep all your existing styles... */
 
-/* ---- Background Stars ---- */
+/* Background stars - visible only in dark mode */
 .stars, .twinkling {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  display: block;
+  display: none; /* hidden by default */
   z-index: -2;
+}
+
+:root.dark .stars,
+:root.dark .twinkling {
+  display: block; /* show stars only in dark mode */
 }
 
 .stars {
@@ -22,9 +27,4 @@
 @keyframes move-twinkle {
   from { background-position: 0 0; }
   to { background-position: -10000px 5000px; }
-}
-
-/* dark mode fallback */
-:root.dark .stars {
-  background: #000 url("https://www.transparenttextures.com/patterns/stardust.png") repeat top center;
 }
