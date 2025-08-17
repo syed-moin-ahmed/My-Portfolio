@@ -1,30 +1,99 @@
-/* keep all your existing styles... */
-
-/* Background stars - visible only in dark mode */
-.stars, .twinkling {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: none; /* hidden by default */
-  z-index: -2;
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#17202a;
+  --muted:#5b6b76;
+  --accent:#0b74ff;
+  --glass: rgba(255,255,255,0.6);
+}
+*{box-sizing:border-box}
+body{
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+}
+.container{
+  max-width:1000px;
+  margin:0 auto;
+  padding:1rem;
 }
 
-:root.dark .stars,
-:root.dark .twinkling {
-  display: block; /* show stars only in dark mode */
+/* theme toggle */
+#theme-toggle{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  background:var(--card);
+  border:0;
+  padding:10px 12px;
+  border-radius:999px;
+  box-shadow:0 6px 18px rgba(12,20,30,0.08);
+  cursor:pointer;
+  font-size:18px;
 }
 
-.stars {
-  background: #000 url("https://www.transparenttextures.com/patterns/stardust.png") repeat top center;
+/* header hero */
+.hero{
+  padding:3rem 0;
+  background:linear-gradient(180deg, rgba(11,116,255,0.06), transparent 60%);
+}
+.hero .container{
+  display:flex;
+  gap:1.5rem;
+  align-items:center;
+}
+.avatar{
+  width:140px;
+  height:140px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#dfefff,#ffffff);
+  padding:10px;
+  box-shadow: 0 8px 30px rgba(11,116,255,0.08);
+}
+.intro h1{
+  font-size:28px;
+  margin:0 0 6px;
+}
+.name{ color:var(--accent) }
+.tagline{ margin:6px 0 12px; color:var(--muted) }
+.contact-line a{ color:var(--text); text-decoration:none; font-weight:600 }
+.cta{ display:inline-block; margin-right:8px; padding:8px 14px; background:var(--accent); color:white; border-radius:8px; text-decoration:none; }
+.cta.ghost{ background:transparent; border:1px solid rgba(11,116,255,0.12); color:var(--accent); }
+
+/* sections */
+.section{ margin:1.25rem 0; padding:1.25rem; background:var(--card); border-radius:12px; box-shadow:0 6px 18px rgba(12,20,30,0.04); }
+.section h2{ margin:0 0 12px; font-size:20px }
+
+/* skills */
+.skills-grid{ display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0 }
+.skills-grid li{ background:linear-gradient(180deg,#fff,#f7fbff); padding:8px 12px; border-radius:999px; color:var(--muted); font-weight:600 }
+
+/* projects */
+.projects-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+.card{ padding:14px; border-radius:10px; background:linear-gradient(180deg,#fff,#fbfdff); box-shadow:0 6px 18px rgba(12,20,30,0.04) }
+.card h3{ margin:0 0 8px }
+.card p{ color:var(--muted); margin:0 0 10px }
+.links a{ color:var(--accent); text-decoration:none; font-weight:700 }
+
+/* footer */
+.site-footer{ text-align:center; padding:1rem; margin-top:1rem; color:var(--muted) }
+
+/* responsive */
+@media (max-width:800px){
+  .hero .container{ flex-direction:column; text-align:center }
+  .avatar{ margin-bottom:6px }
 }
 
-.twinkling {
-  background: transparent url("https://www.transparenttextures.com/patterns/tiny-grid.png") repeat top center;
-  animation: move-twinkle 200s linear infinite;
-  z-index: -1;
-}
-
-@keyframes move-twinkle {
-  from { background-position: 0 0; }
-  to { background-position: -10000px 5000px; }
+/* dark mode */
+:root.dark{
+  --bg:#0b0f14;
+  --card:#0f1720;
+  --text:#dbe9ff;
+  --muted:#96a6b8;
+  --accent:#58a6ff;
+  --glass: rgba(255,255,255,0.03);
 }
