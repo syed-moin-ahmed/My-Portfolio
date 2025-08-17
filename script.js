@@ -1,4 +1,5 @@
 const toggle = document.getElementById('theme-toggle');
+const root = document.documentElement;
 
 function setMode(dark){
   if(dark){
