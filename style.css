@@ -47,12 +47,13 @@ body{
   align-items:center;
 }
 .avatar{
-  width:140px;
-  height:140px;
+  width:200px;
+  height:200px;
   border-radius:18px;
   background:linear-gradient(135deg,#dfefff,#ffffff);
   padding:10px;
   box-shadow: 0 8px 30px rgba(11,116,255,0.08);
+  object-fit: cover;
 }
 .intro h1{
   font-size:28px;
